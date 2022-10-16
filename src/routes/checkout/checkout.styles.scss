@@ -1,0 +1,57 @@
+.checkout-container {
+  padding: 0 .1em;
+  display         : flex;
+  flex-direction  : column;
+  align-items : center;
+  justify-content : center;
+  margin-top      : 4em;
+  height: 80vh;
+
+  .checkout-header {
+    font-size             : .9rem;
+    display               : grid;
+    padding-bottom        : 1em;
+    grid-template-columns : repeat(5, 1fr);
+    gap                   : .5em;
+    justify-items         : center;
+    }
+
+  .checkout-body {
+    overflow : scroll;
+    height   : 60vh;
+
+    &:has(.empty-cart-header) {
+      display: flex;
+      align-items: center;
+      }
+    }
+
+  .total {
+    align-self         : center;
+    padding-inline-end : 1em;
+    }
+
+  }
+
+@media (min-width : 650px) {
+
+  .checkout-container {
+
+    .checkout-header {
+      font-size: 1rem;
+      gap : 5em;
+      }
+
+    }
+
+  .checkout-item-container {
+    max-width: 739px;
+
+
+    .remove-button {
+      padding-inline-end: 1em;
+      justify-self: flex-end;
+      }
+    }
+
+  }

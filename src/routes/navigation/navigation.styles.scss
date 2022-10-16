@@ -1,0 +1,15 @@
+.navigation {
+  display         : flex;
+  justify-content : space-between;
+  padding         : 1em .5em;
+
+  .logo-container {
+    margin-left : .5em;
+    }
+
+  .navlinks-container {
+    display     : flex;
+    align-items : center;
+    gap         : .5em;
+    }
+  }

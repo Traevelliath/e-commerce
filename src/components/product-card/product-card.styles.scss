@@ -1,0 +1,61 @@
+.product-card-container {
+  position       : relative;
+  display        : flex;
+  flex-direction : column;
+
+  img {
+    align-self : center;
+    width      : 90%;
+    min-height : 70%;
+    max-height : 70%;
+    object-fit : cover;
+
+    &:hover {
+      transition : .2s ease-in-out;
+      transform  : scale3d(102%, 102%, 102%);
+      }
+    }
+
+  button {
+    align-self : center;
+    width      : 80%;
+    height     : 4em;
+    }
+
+  .footer {
+    display         : flex;
+    justify-content : space-between;
+    margin          : .3em;
+    padding         : .5em;
+    }
+
+  }
+
+@media (any-hover : hover) {
+
+  .product-card-container {
+
+    .button-container {
+      position : absolute;
+      top      : 50%;
+      display  : none;
+      width    : auto;
+      }
+
+    &:hover {
+      img {
+        transition : .2s ease-in-out;
+        transform  : scale3d(102%, 102%, 102%);
+        opacity    : 0.8;
+        }
+
+      button {
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        opacity         : 0.85;
+        }
+      }
+    }
+
+  }

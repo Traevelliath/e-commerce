@@ -1,0 +1,30 @@
+.checkout-item-container {
+  display               : grid;
+  align-items           : center;
+  max-width             : 450px;
+  margin-bottom         : 1em;
+  grid-template-columns : repeat(5, 1fr);
+  justify-items         : center;
+
+  .image-container {
+    width : 80%;
+
+    img {
+      width : 100%;
+      }
+    }
+
+  .quantity {
+
+
+    .value {
+      padding : 0 .7em;
+      }
+
+    }
+  
+  .remove-button {
+    cursor : pointer;
+    }
+
+  }

@@ -1,0 +1,44 @@
+*, *::before, *::after {
+  box-sizing : border-box;
+  margin     : 0;
+  }
+
+body {
+  font-family : 'Gemunu Libre', sans-serif;
+  font-size   : 1.5rem;
+  }
+
+.container {
+  position  : relative;
+  width     : 100%;
+  max-width : 1500px;
+  margin    : 0 auto;
+  cursor    : default;
+  }
+
+header {
+  position         : fixed;
+  z-index          : 99;
+  top              : 0;
+  width            : 100%;
+  background-color : white;
+  }
+
+section:first-child {
+  margin-top : 5em;
+  }
+
+.section {
+  margin-block-start : 5em;
+  }
+
+
+code {
+  font-family : source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  }
+
+a {
+  text-decoration : none;
+  color           : inherit;
+  }
