@@ -16,10 +16,8 @@ const ButtonComponent: FC<buttonComponentProps> = ({
                                                        isLoading,
                                                        ...otherProps
 }) => {
-    // @ts-ignore
-    const type= BUTTON_TYPE_CLASSES[buttonType]
     return <button disabled={ isLoading }
-                   className={ `button-container ${ type }` }
+                   className={ `button-container ${ buttonType }` }
                    { ...otherProps }>
         { isLoading ?
           <SpinnerComponent props='button'/> :

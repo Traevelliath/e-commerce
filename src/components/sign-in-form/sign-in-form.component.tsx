@@ -10,17 +10,17 @@ import './sign-in-form.styles.scss';
 
 
 const defaultFormField = {
-    email: '',
+    email   : '',
     password: '',
 };
 
 const SignInFormComponent = () => {
-    const dispatch = useDispatch();
-    const { isLoading } = useSelector(selectUserReducer);
-    const errorCode = useSelector(selectError);
+    const dispatch                        = useDispatch();
+    const { isLoading }                   = useSelector(selectUserReducer);
+    const errorCode                       = useSelector(selectError);
     const [ isSigningIn, setIsSigningIn ] = useState(false);
-    const [ formFields, setFormFields ] = useState(defaultFormField);
-    const { email, password } = formFields;
+    const [ formFields, setFormFields ]   = useState(defaultFormField);
+    const { email, password }             = formFields;
 
     const setIsLoading = () => setIsSigningIn(!isSigningIn);
 
@@ -78,12 +78,12 @@ const SignInFormComponent = () => {
                 <div className='buttons-container'>
                     <ButtonComponent type='submit'>
                         { isLoading && isSigningIn ?
-                            <SpinnerComponent props='button inverted'/> :
-                            'Sign In' }
+                          <SpinnerComponent props='button inverted'/> :
+                          'Sign In' }
                     </ButtonComponent>
                     <ButtonComponent
                         type='button'
-                        buttonType={BUTTON_TYPE_CLASSES.google}
+                        buttonType={ BUTTON_TYPE_CLASSES.google }
                         onClick={ signInWithGoogle }>
                         Google Sign In
                     </ButtonComponent>
