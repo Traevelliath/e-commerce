@@ -9,7 +9,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 import { signInFailed, signInSuccess, signUpFailed, signUpSuccess } from './user-actions';
 import { EmailSignInStart, SignUpStart, SignUpSuccess, USER_ACTION_TYPES } from './user-types';
-import { User } from 'firebase/auth';
+import { User, AuthError } from 'firebase/auth';
 import { AdditionalData } from '../../utils/firebase/fb-types';
 
 
@@ -18,7 +18,7 @@ export function* getSnapshotFromUserAuth(userAuth: User, additionalDetails?: Add
         const userSnapshot = yield* call(createUserDocumentFromAuth, userAuth, additionalDetails);
         if ( userSnapshot ) yield* put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
     } catch (error) {
-        yield* put(signInFailed(error as Error));
+        yield* put(signInFailed(error as AuthError));
     }
 }
 
@@ -27,7 +27,7 @@ export function* signInWithGoogle() {
         const { user } = yield* call(signInWithGooglePopup);
         yield* call(getSnapshotFromUserAuth, user);
     } catch (error) {
-        yield* put(signInFailed(error as Error));
+        yield* put(signInFailed(error as AuthError));
     }
 }
 
@@ -39,7 +39,7 @@ export function* signInWithEmail({ payload: { email, password } }: EmailSignInSt
             yield* call(getSnapshotFromUserAuth, user);
         }
     } catch (error) {
-        yield* put(signInFailed(error as Error));
+        yield* put(signInFailed(error as AuthError));
     }
 }
 
@@ -55,7 +55,7 @@ export function* signUp({ payload: { email, password, displayName } }: SignUpSta
             yield* put(signUpSuccess(user, { displayName }));
         }
     } catch (error) {
-        yield* put(signUpFailed(error as Error));
+        yield* put(signUpFailed(error as AuthError));
     }
 }
 
@@ -63,7 +63,7 @@ export function* LogInAfterSigningUp({ payload: { user, additionalDetails } }: S
     try {
         yield* call(getSnapshotFromUserAuth, user, additionalDetails);
     } catch (error) {
-        yield* put(signInFailed(error as Error));
+        yield* put(signInFailed(error as AuthError));
     }
 }
 
@@ -93,7 +93,7 @@ export function* isUserAuthenticated() {
         if ( !userAuth ) return;
         yield* call(getSnapshotFromUserAuth, userAuth);
     } catch (error) {
-        yield* put(signInFailed(error as Error));
+        yield* put(signInFailed(error as AuthError));
     }
 }
 
