@@ -19,7 +19,7 @@
   button {
     align-self : center;
     width      : 80%;
-    height     : 4em;
+    min-height : 4em;
     }
 
   .footer {
@@ -27,6 +27,13 @@
     justify-content : space-between;
     margin          : .3em;
     padding         : .5em;
+
+    .name {
+      overflow      : hidden;
+      width         : 70%;
+      white-space   : nowrap;
+      text-overflow : ellipsis;
+      }
     }
 
   }
