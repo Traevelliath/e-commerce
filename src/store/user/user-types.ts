@@ -2,6 +2,8 @@
 import { Action, ActionWithPayload } from '../../utils/create-action.utils';
 import { AdditionalData, SignUpData, UserData } from '../../utils/firebase/fb-types';
 import { User } from 'firebase/auth';
+import firebase from 'firebase/compat';
+import AuthError = firebase.auth.AuthError;
 
 declare global {
     interface Error {
@@ -25,7 +27,7 @@ export enum USER_ACTION_TYPES {
 export type UserState = {
     readonly currentUser: UserData | null,
     readonly isLoading: boolean,
-    readonly error: Error | null,
+    readonly error: AuthError | null,
 }
 
 export type CheckUserSession = Action<USER_ACTION_TYPES.CHECK_USER_SESSION>
@@ -39,7 +41,7 @@ export type SignInSuccess = ActionWithPayload<USER_ACTION_TYPES.SIGN_IN_SUCCESS,
     UserData>
 
 export type SignInFailed = ActionWithPayload<USER_ACTION_TYPES.SIGN_IN_FAILED,
-    Error>
+    AuthError>
 
 export type SignOutStart = Action<USER_ACTION_TYPES.SIGN_OUT>
 
@@ -50,4 +52,4 @@ export type SignUpSuccess = ActionWithPayload<USER_ACTION_TYPES.SIGN_UP_SUCCESS,
     { user: User, additionalDetails: AdditionalData }>
 
 export type SignUpFailed = ActionWithPayload<USER_ACTION_TYPES.SIGN_UP_FAILED,
-    Error>
+    AuthError>

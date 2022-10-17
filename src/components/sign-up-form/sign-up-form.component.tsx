@@ -4,6 +4,7 @@ import { signUpStart } from '../../store/user/user-actions';
 import { selectError, selectUserReducer } from '../../store/user/user-selector';
 import ButtonComponent from '../button/button.component';
 import FormInputComponent from '../form-input/form-input.component';
+import { AuthErrorCodes } from 'firebase/auth'
 
 import '../sign-in-form/sign-in-form.styles.scss';
 import SpinnerComponent from '../spinner/spinner.component';
@@ -45,7 +46,7 @@ const SignUpFormComponent = () => {
         resetFormFields();
         alert('You are registered now.');
 
-        if ( errorCode && errorCode === 'auth/email-already-in-use' ) alert('email provided is already in use');
+        if ( errorCode === AuthErrorCodes.EMAIL_EXISTS ) alert('email provided is already in use');
         else console.log(errorCode);
 
     };

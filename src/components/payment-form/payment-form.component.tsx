@@ -23,10 +23,10 @@ const PaymentFormComponent = () => {
 
         setIsProcessingPayment(true);
 
-        const response = await fetch('../.netlify/functions/create-payment-intent', {
-            method : 'post',
+        const response = await fetch("../.netlify/functions/create-payment-intent", {
+            method : "post",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             body   : JSON.stringify({ amount })
         }).then(res => res.json());
@@ -37,7 +37,7 @@ const PaymentFormComponent = () => {
             payment_method: {
                 card           : elements.getElement(CardElement)!,
                 billing_details: {
-                    name: user?.displayName || 'Guest'
+                    name: user?.displayName || "Guest"
                 }
             }
         });
@@ -45,7 +45,7 @@ const PaymentFormComponent = () => {
         setIsProcessingPayment(false);
 
         if ( paymentResult.error ) alert(paymentResult.error);
-        if ( paymentResult.paymentIntent?.status === 'succeeded' ) alert('Payment successful');
+        if ( paymentResult.paymentIntent?.status === "succeeded" ) alert("Payment successful");
     };
 
     return (
