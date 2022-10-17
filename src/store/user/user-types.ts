@@ -1,9 +1,7 @@
 
 import { Action, ActionWithPayload } from '../../utils/create-action.utils';
 import { AdditionalData, SignUpData, UserData } from '../../utils/firebase/fb-types';
-import { User } from 'firebase/auth';
-import firebase from 'firebase/compat';
-import AuthError = firebase.auth.AuthError;
+import { User, AuthError } from 'firebase/auth';
 
 declare global {
     interface Error {

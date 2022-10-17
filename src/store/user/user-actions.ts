@@ -12,9 +12,7 @@ import {
     USER_ACTION_TYPES,
 } from './user-types';
 import { AdditionalData, UserData } from '../../utils/firebase/fb-types';
-import { User } from 'firebase/auth';
-import firebase from 'firebase/compat';
-import AuthError = firebase.auth.AuthError;
+import { User, AuthError } from 'firebase/auth';
 
 /*
 export const setCurrentUser = user =>
